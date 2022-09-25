@@ -1,0 +1,32 @@
+.nav-bar-container-light {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 3%;
+    aspect-ratio: 2/1;
+    background-color: #151617;
+    border-bottom-style: solid;
+    border-bottom-color: #dcdcdc;
+    border-bottom-width: 0.5%;
+    height: 8vh;
+}
+
+.website-logo {
+    width: 5%;
+    height: 100%;
+    right: 10%;
+    
+}
+
+.middle-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 50vh;
+    color: whitesmoke;
+}
+

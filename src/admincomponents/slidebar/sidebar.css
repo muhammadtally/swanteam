@@ -1,0 +1,107 @@
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: fixed;
+    width: 2.2%;
+    height: 4.4%;
+    right: 2%;
+    top: 3.5%;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+    background: #ffffff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+    background: #0e86e8;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+    height: 5%;
+    width: 2%;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+    background: #0e86e8;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+    position: fixed;
+    top: 13.6%;
+    height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+    background: #0e86e8;
+    padding: 2.5em 2em 0;
+    font-size: 1.1em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+    fill: #0e86e8;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+    color: #b8b7ad;
+    padding: 8em;
+}
+.logout-button {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    left: 0%;
+    top: 60%;
+    
+    
+}
+
+.settings-button {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    right: 190%;
+    top: 41.5%;
+    text-align: center;
+}
+.logo-img {
+    position: fixed;
+    width: 70%;
+    height: 15%;
+    right: 7vh;
+    top: 30px;
+}
+  
+
+/* Individual item */
+.bm-item {
+    display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+/* Individual item */
+.bm-item {
+    display: inline-block;
+    color: #d1d1d1;
+    margin-bottom: 15px;
+    text-align: right;
+    text-decoration: solid;
+    transition: color 0.2s;
+}
+
+    .bm-item:hover {
+        color: #ffffff;
+    }
+
