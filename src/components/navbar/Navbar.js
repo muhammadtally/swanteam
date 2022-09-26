@@ -14,7 +14,7 @@ export default props => {
             />
             <div className="middle-items ">
 
-                <h5>{user.attributes.name} ,ברוך הבא</h5>
+                <h5>ברוך הבא, {user.attributes.name}</h5>
                 
             </div>   
             

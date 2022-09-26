@@ -29,17 +29,36 @@ import {Footer} from './components/login/Footer';
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
-const  isAdmin = false;
+
 
 
 
 
 
 export function App(){
+
+  let  isAdmin = false;
   const { user, signOut } = useAuthenticator((context) => [context.user]);
-  if(user.attributes.group){isAdmin = true;}
+  if(user.signInUserSession.accessToken.payload["cognito:groups"].includes('Admins')) {isAdmin = true}
+
+  return (
 <>
           {!isAdmin ? (
+            <Router>
+            <Navbar />
+            <Sidebar  />
+            <div className="App">
+              <Routes>
+                <Route  exact path='/'  element={<Home />} />
+                <Route path='/upload' element={<Upload />} />
+                <Route path='/search' element={<Search />} />
+              </Routes> 
+              <ScrollButton />   
+            </div>
+          </Router>
+            
+          ) : (
+            
             <Router>
             <Navbar />
             <AdminSide  />
@@ -54,23 +73,9 @@ export function App(){
             <ScrollButton />   
             </div>
             </Router>
-          ) : (
-            <Router>
-              <Navbar />
-              <Sidebar  />
-              <div className="App">
-                <Routes>
-                  <Route  exact path='/'  element={<Home />} />
-                  <Route path='/upload' element={<Upload />} />
-                  <Route path='/search' element={<Search />} />
-                </Routes> 
-                <ScrollButton />   
-              </div>
-            </Router>
-
           )}
           </>
-
+)
 }
 
 export default withAuthenticator(App, {
