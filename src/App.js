@@ -39,7 +39,7 @@ export function App(){
 
   let  isAdmin = false;
   const { user, signOut } = useAuthenticator((context) => [context.user]);
-  if(user.signInUserSession.accessToken.payload["cognito:groups"].includes('Admins')) {isAdmin = true}
+  if(user.signInUserSession.accessToken.payload["cognito:groups"].includes('Admins')) {isAdmin = false}
 
   return (
 <>

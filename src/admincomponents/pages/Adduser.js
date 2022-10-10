@@ -3,7 +3,43 @@ import Select from 'react-select';
 import { useForm } from "react-hook-form";
 import './styles/adduser.css'
 
+
 const Adduser = () => {
+
+  const customStyles = {
+    control: (base,state) => ({
+      ...base,
+      background: "#2222",
+      borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
+      borderColor: state.isFocused ? "white" : "white",
+      boxShadow: state.isFocused ? null : null,
+      fontSize: 16,
+      direction:"rtl",
+      "&:hover": {
+        borderColor: state.isFocused ? "#03e9f4" : "#03e9f4"}
+
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color:'#03e9f4',
+      paddingTop:'3px',
+      direction:"rtl",
+      textalign: "center",
+    }) ,
+    option: (provided, state) => ({
+      ...provided,
+      padding: 5,
+      direction:"rtl",
+      cursor: state.isDisabled ? 'not-allowed' : 'default',
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? 'blue' : 'black',
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.selectProps.menuColor,
+    })
+  }
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     
@@ -38,6 +74,7 @@ const Adduser = () => {
     placeholder="בחר חברה"
     onChange={handleChange}
     width='500px'
+    styles={customStyles}
     />
     <a href="#">
       <span></span>
