@@ -74,14 +74,9 @@
   .searchPage__resultSnippet {
     margin-top: 10px;
     text-align:right;
+    width: 100%;
   }
   
-  .searchPage__resultImage {
-    height: 50px;
-    width: 50px;
-    object-fit: contain;
-    margin-right: 10px;
-    text-align:right;
-  }
+
 
 

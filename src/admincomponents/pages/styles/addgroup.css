@@ -32,6 +32,7 @@
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
+  direction: rtl;
   
 }
 .login-box .user-box label {
@@ -50,7 +51,7 @@
   top: -20px;
   left: 90%;
   color: #03e9f4;
-  font-size: 12px;
+  font-size: 10px;
   
 }
 .login-box form a {

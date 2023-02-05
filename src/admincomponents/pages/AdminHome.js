@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/home.css';
+import { useNavigate } from "react-router-dom";
 const AdminHome = () => {
-
 
     return (
         <div className="wrapper">
@@ -17,12 +17,15 @@ const AdminHome = () => {
         description="על מנת להוסיף משתמש חדש לאפליקציה לחברה שכבר קיימת"
       />
 
+      
       <Card
         img="https://icon-library.com/images/team-icon-png/team-icon-png-13.jpg"
         title="הוסף חברה"
         description="להוספת חברה חדשה למשרד רואה החשבון"
         path='/group'
+        
       />
+      
     </div>
   );
 }
@@ -35,7 +38,7 @@ function Card(props) {
         <h2 className="card__title">{props.title}</h2>
         <p className="card__description">{props.description}</p>
       </div>
-      <button  className="card__btn">לחץ כאן</button>
+      <button   className="card__btn">לחץ כאן</button>
     </div>
         
     );

@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import './drop-file-input.css';
 import Swal from 'sweetalert2'
-
+import uploadFilesService from '../../utils/upload-files.service';
 import { ImageConfig } from './config/ImageConfig'; 
 import uploadImg from './assest/cloud-upload-regular-240.png';
-
+import httpCommon from "../../utils/http-common";
 
 
 const DropFileInput = props => {
@@ -18,14 +18,25 @@ const DropFileInput = props => {
         { value: "1", label: "הכנסות" },
         { value: "2", label: "הוצאות" },
         { value: "3", label: "שעות עבודה" },
-        { value: "4", label: "מסמכי בנק" }
+        { value: "4", label: "מסמך בנקאי" }
       ];
-    
-    const groupsoptions = [
-        { value: "1", label: "סנושי" },
-        { value: "2", label: "דבאח" },
-        { value: "3", label: "בטון סאלים" }   
-    ]
+
+    const fetchData = () => {
+        httpCommon.get("http://127.0.0.1:8000/folders")
+          .then((response) => response.data)
+          .then((actualData) => { 
+            setgroupsoptions(actualData)
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      };
+  
+      useEffect(() => {
+        fetchData();
+      }, []);
+
+    const [groupsoptions, setgroupsoptions] = useState("[]");
 
     const wrapperRef = useRef(null);
 
@@ -56,9 +67,30 @@ const DropFileInput = props => {
               })
         }
         else{
-            window.alert(selectedValue)
-            const formData = new FormData();
+           
             {fileList.map((file) => {
+                
+                const formData = new FormData();
+                formData.append("folder", selectedGroup + '/' + selectedValue);
+                formData.append("fileobject", file);
+                if(uploadFilesService.upload(formData)){
+                    Swal.fire({
+                        title: '!הוסף בהצלחה ',
+                        text: 'הקובץ הועלה בהצלחה',
+                        icon: 'success',
+                        confirmButtonText: 'אישור',
+                        confirmButtonColor: '#5bc4f5'
+                      })
+                }
+                else{
+                    Swal.fire({
+                        title: 'תקלה',
+                        text: 'קרתה תקלה, אנא נסה מאוחר יותר',
+                        icon: 'warning',
+                        confirmButtonText: 'אישור',
+                        confirmButtonColor: '#5bc4f5'
+                      })
+                }
                 const updatedList = [...fileList];
                 updatedList.splice(fileList.indexOf(file), 1);
                 setFileList(updatedList);

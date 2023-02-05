@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import {Col,Form,} from "react-bootstrap";
 import './styles/search.css';
 import { searchFiles } from '../../../src/utils/API';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 
 const Search = () => {
+    const { user, signOut } = useAuthenticator((context) => [context.user]);
+    const [selectedgroup, setgroup] = useState();
     // create state for holding returned filesDatabase api data
     const [searchedFiles, setSearchedFiles] = useState([]);
     // create state for holding our search field data
@@ -17,6 +20,7 @@ const Search = () => {
             return false;
         }
         try {
+            setgroup(user.signInUserSession.accessToken.payload["cognito:groups"][0])
             const response = await searchFiles(searchInput);
     
             if (!response.ok) {

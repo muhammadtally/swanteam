@@ -1,11 +1,15 @@
 import React from 'react';
 import { bubble  as Menu } from 'react-burger-menu';
-import './sidebar.css';
+import Button from '@mui/material/Button';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import './adminsidebar.css';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 
 import { Link } from "react-router-dom";
 
 export default props => {
+    const { user, signOut } = useAuthenticator((context) => [context.user]);
     return (
         <Menu  className="menu" right>
             <img
@@ -54,7 +58,9 @@ export default props => {
                 הוסף משתמש
             </Link>
 
-
+            <Button className="logout-button" color="inherit" size="large" onClick={signOut} startIcon={<LogoutOutlinedIcon />}>
+              התנתק
+          </Button>
 
       </Menu>
     );

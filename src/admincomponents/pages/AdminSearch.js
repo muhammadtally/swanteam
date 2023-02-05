@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Col,Form,} from "react-bootstrap";
 import './styles/search.css';
-import { searchFiles } from '../../utils/API';
+import { searchFilesAdmin } from '../../utils/API';
 
 
 const AdminSearch = () => {
@@ -17,7 +17,7 @@ const AdminSearch = () => {
             return false;
         }
         try {
-            const response = await searchFiles(searchInput);
+            const response = await searchFilesAdmin(searchInput);
     
             if (!response.ok) {
                 throw new Error('something went wrong!');

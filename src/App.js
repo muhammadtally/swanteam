@@ -39,7 +39,7 @@ export function App(){
 
   let  isAdmin = false;
   const { user, signOut } = useAuthenticator((context) => [context.user]);
-  if(user.signInUserSession.accessToken.payload["cognito:groups"].includes('Admins')) {isAdmin = false}
+  if(user.signInUserSession.accessToken.payload["cognito:groups"].includes('Admins')) {isAdmin = true}
 
   return (
 <>
@@ -78,6 +78,8 @@ export function App(){
 )
 }
 
+
+
 export default withAuthenticator(App, {
   components: {
     Header,
@@ -86,5 +88,6 @@ export default withAuthenticator(App, {
       Footer: SignInFooter
     },
     Footer
-  }
+  },
+  hideSignUp :true
 });

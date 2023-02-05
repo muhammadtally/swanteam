@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import './drop-file-input.css';
 import Swal from 'sweetalert2'
-
+import { useAuthenticator } from '@aws-amplify/ui-react';
+import uploadFilesService from '../../utils/upload-files.service';
 import { ImageConfig } from './config/ImageConfig'; 
 import uploadImg from './assest/cloud-upload-regular-240.png';
 
 const DropFileInput = props => {
 
     const [selectedValue, setSelectedValue] = useState();
+    const { user, signOut } = useAuthenticator((context) => [context.user]);
+    const [selectedgroup, setgroup] = useState();
 
     const optionList = [
         { value: "1", label: "הכנסות" },
         { value: "2", label: "הוצאות" },
         { value: "3", label: "שעות עבודה" },
-        { value: "4", label: "מסמכי בנק" }
+        { value: "4", label: "מסמך בנקאי" }
       ];
 
     const wrapperRef = useRef(null);
@@ -37,9 +40,20 @@ const DropFileInput = props => {
           
         }
         else{
-            window.alert(selectedValue)
-            const formData = new FormData();
+            setgroup(user.signInUserSession.accessToken.payload["cognito:groups"][0])
             {fileList.map((file) => {
+                const formData = new FormData();
+                formData.append("folder", selectedgroup + '/' + selectedValue);
+                formData.append("fileobject", file);
+                if(uploadFilesService.upload(formData)){
+                    Swal.fire({
+                        title: '!הוסף בהצלחה ',
+                        text: 'הקובץ הועלה בהצלחה',
+                        icon: 'success',
+                        confirmButtonText: 'אישור',
+                        confirmButtonColor: '#5bc4f5'
+                      })
+                }
                 const updatedList = [...fileList];
                 updatedList.splice(fileList.indexOf(file), 1);
                 setFileList(updatedList);
