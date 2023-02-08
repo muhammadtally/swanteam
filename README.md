@@ -22,7 +22,7 @@ The functionality that supports an administrator type user is: uploading files, 
 ![image](https://i.ibb.co/0jj0tZW/search.png)
 
 ### `Add Company`:
-![image](https://i.ibb.co/NY54R44/6.gif)
+![Gif](https://i.ibb.co/NY54R44/6.gif)
 
 ### `Add User`:
 
