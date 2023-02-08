@@ -9,8 +9,8 @@ The API server of the project:
 # Login:
 
 The login/forgot password screen was developed using AWS Amplify withAuthenticator
- ![image](https://ibb.co/6w2vzNF)
- ![image](https://ibb.co/cXZ5qF6)
+ ![image](https://i.ibb.co/wgTJVY4/3.png)
+ ![image](https://i.ibb.co/3YjXKNp/4.png)
 
 # administrator:
 The functionality that supports an administrator type user is: uploading files, searching files, adding a company, and adding a user.
