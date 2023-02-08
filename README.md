@@ -2,7 +2,8 @@
 
 This project is a final project as part of the studies for a bachelor's degree in information systems, the project is customer relationship management for an accounting firm.
 The project contains two types of users, administrator (the accountants), and users (the customers).
-The API server of the project:
+
+The API server for the project:
 e.g.https://github.com/muhammadtally/swanteamserver
 
 # Login:
