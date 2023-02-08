@@ -1,18 +1,23 @@
-# Getting Started with Create React App
+# Overview:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a final project as part of the studies for a bachelor's degree in information systems, the project is customer relationship management for an accounting firm.
+The project contains two types of users, administrator (the accountants), and users (the customers).
 
-## Available Scripts
+The functionality that supports a user of the user type: file upload and file search.
+The API server of the project:
 
-In the project directory, you can run:
+# Login:
 
-### `npm start`
+The login/forgot password screen was developed using AWS Amplify withAuthenticator
+ ![image](https://ibb.co/6w2vzNF)
+ ![image](https://ibb.co/cXZ5qF6)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# administrator:
+The functionality that supports an administrator type user is: uploading files, searching files, adding a company, and adding a user.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Upload`:
+
+
 
 ### `npm test`
 
