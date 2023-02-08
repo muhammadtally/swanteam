@@ -25,7 +25,7 @@ The functionality that supports an administrator type user is: uploading files, 
 ![](https://i.ibb.co/NY54R44/6.gif)
 
 ### `Add User`:
-
+![image]([https://i.ibb.co/jkcrLx3/2.png](https://www.linkpicture.com/q/7_228.png))
 
 
 # Users:
@@ -35,3 +35,4 @@ The functionality that supports a user of the user type: file upload and file se
 ![image](https://i.ibb.co/jkcrLx3/2.png)
 
 ### `Search`:
+![image](https://i.ibb.co/0jj0tZW/search.png)
