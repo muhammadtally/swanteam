@@ -25,7 +25,7 @@ The functionality that supports an administrator type user is: uploading files, 
 ![](https://i.ibb.co/NY54R44/6.gif)
 
 ### `Add User`:
-![image]([https://i.ibb.co/jkcrLx3/2.png](https://www.linkpicture.com/q/7_228.png))
+![image](https://www.linkpicture.com/q/7_228.png)
 
 
 # Users:
